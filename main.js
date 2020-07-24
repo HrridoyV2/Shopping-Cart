@@ -5,9 +5,8 @@ var currentPrice = parseFloat(document.getElementById(priceId).innerText);
     const plusBtn = document.getElementById(plusId);
 plusBtn.addEventListener('click', function(){
     var input = parseFloat(document.getElementById(inputId).value);
-    if(input>=0){
-        input++;
-    }
+    input++;
+    
     document.getElementById(inputId).value = input;
     document.getElementById(priceId).innerText = currentPrice * input;
     
@@ -34,7 +33,9 @@ function sumarry(){
     const phnT = parseFloat(document.getElementById('phn-price').innerText);
     const caseT = parseFloat(document.getElementById('case-price').innerText); 
     
-    const tax = parseFloat(document.getElementById('tax').innerText);
+    let tax = parseFloat(document.getElementById('tax').innerText);
+    tax = parseInt(phnT*.05 + caseT*.05);
+    document.getElementById('tax').innerText = tax;
     document.getElementById('sub-total').innerText = phnT + caseT;
     document.getElementById('total').innerText = phnT + caseT + tax;
 }
